@@ -1,6 +1,6 @@
 FROM alpine
 LABEL maintainer "Patrick D'appollonio <patrick@dappollonio.us>"
 
-RUN apk add --no-cache bash curl file && \
+RUN apk add --no-cache bash curl file zip && \
     rm -rf /var/cache/apk/* && \
     sed -i "s|ash|bash|g" /etc/passwd
