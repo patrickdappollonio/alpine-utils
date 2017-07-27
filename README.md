@@ -1,4 +1,7 @@
-# alpine-utils
+# alpine-utils [![Build Status](https://travis-ci.org/patrickdappollonio/alpine-utils.svg?branch=master)](https://travis-ci.org/patrickdappollonio/alpine-utils)
+
 Alpine base image with certain utilities.
 
-[![Build Status](https://travis-ci.org/patrickdappollonio/alpine-utils.svg?branch=master)](https://travis-ci.org/patrickdappollonio/alpine-utils)
+```bash
+docker run -it patrickdappollonio/alpine-utils bash
+```
