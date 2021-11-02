@@ -1,5 +1,9 @@
 # alpine-utils [![ci](https://github.com/patrickdappollonio/alpine-utils/actions/workflows/ci.yml/badge.svg)](https://github.com/patrickdappollonio/alpine-utils/actions/workflows/ci.yml)
 
+```bash
+docker run -it ghcr.io/patrickdappollonio/alpine-utils:latest bash
+```
+
 Alpine base image with the following Linux apps:
 
 * Standard Alpine Linux applications
@@ -21,9 +25,3 @@ And the following utilities:
 ### Daily updated
 
 The Docker Image [is built automatically by Github actions daily at 00:00 UTC](https://github.com/patrickdappollonio/alpine-utils/actions/workflows/ci.yml). The image is then pushed to the Docker Registry. If you need stability, consider pulling by SHA since it's not easy to version all the apps above in a way that makes sense.
-
-### Use
-
-```bash
-docker run -it patrickdappollonio/alpine-utils bash
-```
