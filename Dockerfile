@@ -11,7 +11,7 @@ FROM alpine as trim
 COPY --from=eget /usr/local/bin/eget /usr/local/bin/eget
 
 # Add a handful of default applications
-RUN apk add --no-cache bash curl file zip unzip git
+RUN apk add --no-cache bash curl file zip unzip git bind-tools busybox-extras
 
 # Clean the apk cache
 RUN rm -rf /var/cache/apk/*
