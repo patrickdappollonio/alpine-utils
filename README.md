@@ -12,6 +12,9 @@ Alpine base image with the following Linux apps:
 * `file`
 * `zip`
 * `unzip`
+* `dig`
+* `nslookup`
+* `host`
 
 And the following utilities:
 
