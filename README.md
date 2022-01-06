@@ -27,4 +27,4 @@ And the following utilities:
 
 ### Daily updated
 
-The Docker Image [is built automatically by Github actions daily at 00:00 UTC](https://github.com/patrickdappollonio/alpine-utils/actions/workflows/ci.yml). The image is then pushed to the Docker Registry. If you need stability, consider pulling by SHA since it's not easy to version all the apps above in a way that makes sense.
+The Docker Image [is built automatically by Github actions weekly on Monday at 00:00 UTC](https://github.com/patrickdappollonio/alpine-utils/actions/workflows/ci.yml). The image is then pushed to the Docker Registry. If you need stability, consider pulling by SHA since it's not easy to version all the apps above in a way that makes sense.
