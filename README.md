@@ -21,7 +21,7 @@ And the following utilities:
 * `kubectl` (version `1.22`)
 * `helm` (version `3.7.1`)
 * `helm-push` (version `0.10.1`)
-* [`wait-for-it.sh`](https://github.com/vishnubob/wait-for-it) (latest version available)
+* [`wait-for-it`](https://github.com/roerohan/wait-for-it) (v0.29)
 * [`tgen`](https://github.com/patrickdappollonio/tgen) (latest version available)
 * [`dotenv`](https://github.com/patrickdappollonio/dotenv) (latest version available)
 
