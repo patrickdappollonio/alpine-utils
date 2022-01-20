@@ -25,8 +25,7 @@ RUN eget https://github.com/chartmuseum/helm-push/releases/download/v0.10.1/helm
 RUN eget https://dl.k8s.io/release/v1.22/bin/linux/amd64/kubectl --to /usr/local/bin
 RUN eget patrickdappollonio/tgen --to /usr/local/bin
 RUN eget patrickdappollonio/dotenv --to /usr/local/bin
-RUN eget https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh --to /usr/local/bin && \
-  mv /usr/local/bin/wait-for-it.sh /usr/local/bin/wait-for-it && \
+RUN eget https://github.com/roerohan/wait-for-it/releases/download/v0.2.9/wait-for-it --to /usr/local/bin && \
   chmod +x /usr/local/bin/wait-for-it
 
 # Remove eget once we're done
