@@ -34,5 +34,5 @@ RUN rm /usr/local/bin/eget
 
 # Clean single layer image
 FROM scratch
-LABEL maintainer "Patrick D'appollonio <patrick@dappollonio.us>"
+LABEL maintainer "Patrick D'appollonio <hey@patrickdap.com>"
 COPY --from=trim / /
