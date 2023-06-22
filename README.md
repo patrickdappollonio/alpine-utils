@@ -15,6 +15,8 @@ Alpine base image with the following Linux apps:
 * `dig`
 * `nslookup`
 * `host`
+* `git`
+* `jq`
 
 And the following utilities:
 
@@ -22,6 +24,7 @@ And the following utilities:
 * `helm` (version `3.7.1`)
 * `helm-push` (version `0.10.1`)
 * [`wait-for-it`](https://github.com/roerohan/wait-for-it) (v0.29)
+* [`wait-for`](https://github.com/patrickdappollonio/wait-for) (latest version available)
 * [`tgen`](https://github.com/patrickdappollonio/tgen) (latest version available)
 * [`dotenv`](https://github.com/patrickdappollonio/dotenv) (latest version available)
 

@@ -11,7 +11,7 @@ FROM alpine as trim
 COPY --from=eget /usr/local/bin/eget /usr/local/bin/eget
 
 # Add a handful of default applications
-RUN apk add --no-cache bash curl file zip unzip git bind-tools busybox-extras
+RUN apk add --no-cache bash curl file zip unzip git bind-tools busybox-extras jq
 
 # Clean the apk cache
 RUN rm -rf /var/cache/apk/*
@@ -25,6 +25,7 @@ RUN eget https://github.com/chartmuseum/helm-push/releases/download/v0.10.1/helm
 RUN eget https://dl.k8s.io/release/v1.22/bin/linux/amd64/kubectl --to /usr/local/bin
 RUN eget patrickdappollonio/tgen --to /usr/local/bin
 RUN eget patrickdappollonio/dotenv --to /usr/local/bin
+RUN eget patrickdappollonio/wait-for --to /usr/local/bin
 RUN eget https://github.com/roerohan/wait-for-it/releases/download/v0.2.9/wait-for-it --to /usr/local/bin && \
   chmod +x /usr/local/bin/wait-for-it
 
