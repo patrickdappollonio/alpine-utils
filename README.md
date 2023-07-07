@@ -20,9 +20,9 @@ Alpine base image with the following Linux apps:
 
 And the following utilities:
 
-* `kubectl` (version `1.22`)
-* `helm` (version `3.7.1`)
-* `helm-push` (version `0.10.1`)
+* `kubectl` (version `1.24`)
+* `helm` (version `3.12.1`)
+* `helm-push` (version `0.10.4`)
 * [`wait-for-it`](https://github.com/roerohan/wait-for-it) (v0.29)
 * [`wait-for`](https://github.com/patrickdappollonio/wait-for) (latest version available)
 * [`tgen`](https://github.com/patrickdappollonio/tgen) (latest version available)

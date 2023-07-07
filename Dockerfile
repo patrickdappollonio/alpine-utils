@@ -20,9 +20,9 @@ RUN rm -rf /var/cache/apk/*
 RUN sed -i "s|ash|bash|g" /etc/passwd
 
 # Download different apps
-RUN eget https://get.helm.sh/helm-v3.7.1-linux-amd64.tar.gz --file helm --to /usr/local/bin
-RUN eget https://github.com/chartmuseum/helm-push/releases/download/v0.10.1/helm-push_0.10.1_linux_amd64.tar.gz  --file helm-cm-push --to /usr/local/bin
-RUN eget https://dl.k8s.io/release/v1.22/bin/linux/amd64/kubectl --to /usr/local/bin
+RUN eget https://get.helm.sh/helm-v3.12.1-linux-amd64.tar.gz --file helm --to /usr/local/bin
+RUN eget https://github.com/chartmuseum/helm-push/releases/download/v0.10.4/helm-push_0.10.1_linux_amd64.tar.gz  --file helm-cm-push --to /usr/local/bin
+RUN eget https://dl.k8s.io/release/v1.24/bin/linux/amd64/kubectl --to /usr/local/bin
 RUN eget patrickdappollonio/tgen --to /usr/local/bin
 RUN eget patrickdappollonio/dotenv --to /usr/local/bin
 RUN eget patrickdappollonio/wait-for --to /usr/local/bin
