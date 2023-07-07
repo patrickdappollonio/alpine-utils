@@ -26,11 +26,10 @@ And the following utilities:
 * [`wait-for-it`](https://github.com/roerohan/wait-for-it) (v0.29)
 * [`wait-for`](https://github.com/patrickdappollonio/wait-for) (latest version available)
 * [`tgen`](https://github.com/patrickdappollonio/tgen) (latest version available)
-* [`dotenv`](https://github.com/patrickdappollonio/dotenv) (latest version available)
 
 ### Weekly updated
 
-The Docker Image [is built automatically by Github actions weekly on Monday at 00:00 UTC](https://github.com/patrickdappollonio/alpine-utils/actions/workflows/ci.yml). The image is then pushed to the Github Container Registry. 
+The Docker Image [is built automatically by Github actions weekly on Monday at 00:00 UTC](https://github.com/patrickdappollonio/alpine-utils/actions/workflows/ci.yml). The image is then pushed to the Github Container Registry.
 
 > **Warning**
 > If you need stability, consider pulling by SHA since it's not easy to version all the apps above in a way that makes sense.
