@@ -26,6 +26,7 @@ And the following utilities:
 * [`wait-for-it`](https://github.com/roerohan/wait-for-it) (v0.29)
 * [`wait-for`](https://github.com/patrickdappollonio/wait-for) (latest version available)
 * [`tgen`](https://github.com/patrickdappollonio/tgen) (latest version available)
+* `docker` (v24.0.3)
 
 ### Weekly updated
 
