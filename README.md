@@ -17,6 +17,7 @@ Alpine base image with the following Linux apps:
 * `host`
 * `git`
 * `jq`
+* `pause` (from `google/pause:latest`)
 
 And the following utilities:
 
