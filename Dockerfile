@@ -16,7 +16,7 @@ COPY --from=eget /usr/local/bin/eget /usr/local/bin/eget
 COPY --from=pause /pause /usr/local/bin/pause
 
 # Add a handful of default applications
-RUN apk add --no-cache bash curl file zip unzip git bind-tools busybox-extras jq
+RUN apk add --no-cache bash curl make file zip unzip git bind-tools busybox-extras jq
 
 # Clean the apk cache
 RUN rm -rf /var/cache/apk/*
