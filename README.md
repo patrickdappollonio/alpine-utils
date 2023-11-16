@@ -9,6 +9,7 @@ Alpine base image with the following Linux apps:
 * Standard Alpine Linux applications
 * `bash`
 * `curl`
+* `make`
 * `file`
 * `zip`
 * `unzip`
