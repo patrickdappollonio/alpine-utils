@@ -16,7 +16,7 @@ COPY --from=eget /usr/local/bin/eget /usr/local/bin/eget
 COPY --from=pause /pause /usr/local/bin/pause
 
 # Add a handful of default applications
-RUN apk add --no-cache bash curl make file zip unzip git bind-tools busybox-extras jq
+RUN apk add --no-cache bash curl make file zip unzip git bind-tools busybox-extras jq openssh
 
 # Clean the apk cache
 RUN rm -rf /var/cache/apk/*
@@ -25,10 +25,10 @@ RUN rm -rf /var/cache/apk/*
 RUN sed -i "s|ash|bash|g" /etc/passwd
 
 # Download different apps
-RUN eget https://get.helm.sh/helm-v3.12.1-linux-amd64.tar.gz --file helm --to /usr/local/bin
+RUN eget https://get.helm.sh/helm-v3.14.0-linux-amd64.tar.gz --file helm --to /usr/local/bin
 RUN eget https://github.com/chartmuseum/helm-push/releases/download/v0.10.4/helm-push_0.10.4_linux_amd64.tar.gz --file helm-cm-push --to /usr/local/bin
-RUN eget https://dl.k8s.io/v1.24.15/bin/linux/amd64/kubectl --to /usr/local/bin
-RUN eget https://download.docker.com/linux/static/stable/x86_64/docker-24.0.3.tgz --file docker/docker --to /usr/local/bin
+RUN eget https://dl.k8s.io/v1.29.1/bin/linux/amd64/kubectl --to /usr/local/bin
+RUN eget https://download.docker.com/linux/static/stable/x86_64/docker-25.0.0.tgz --file docker/docker --to /usr/local/bin
 RUN eget patrickdappollonio/tgen --to /usr/local/bin
 RUN eget patrickdappollonio/wait-for --to /usr/local/bin
 RUN eget https://github.com/roerohan/wait-for-it/releases/download/v0.2.9/wait-for-it --to /usr/local/bin && \
