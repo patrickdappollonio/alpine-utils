@@ -1,13 +1,13 @@
-FROM alpine as eget
+FROM alpine AS eget
 RUN apk add --no-cache curl
 RUN curl -L https://github.com/zyedidia/eget/releases/download/v1.3.3/eget-1.3.3-linux_amd64.tar.gz | tar --strip-components 1 -xz -C /usr/local/bin
 RUN chmod +x /usr/local/bin/eget
 
-FROM google/pause as pause
+FROM gcr.io/google-containers/pause AS pause
 
 # ============================================================
 
-FROM alpine as trim
+FROM alpine AS trim
 
 # Copy eget from previous step
 COPY --from=eget /usr/local/bin/eget /usr/local/bin/eget
