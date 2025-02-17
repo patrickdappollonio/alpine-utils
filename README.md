@@ -23,12 +23,12 @@ Alpine base image with the following Linux apps:
 And the following utilities:
 
 * `kubectl` (version `1.24`)
-* `helm` (version `3.12.1`)
-* `helm-push` (version `0.10.4`)
-* [`wait-for-it`](https://github.com/roerohan/wait-for-it) (v0.29)
+* `helm` (latest version available in alpine)
+* `helm-push` (latest version available)
+* [`wait-for-it`](https://github.com/roerohan/wait-for-it) (v0.2.14)
 * [`wait-for`](https://github.com/patrickdappollonio/wait-for) (latest version available)
 * [`tgen`](https://github.com/patrickdappollonio/tgen) (latest version available)
-* `docker` (v24.0.3)
+* `docker` (latest version available in alpine)
 
 ### Quick launch in Kubernetes
 

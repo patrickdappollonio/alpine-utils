@@ -1,19 +1,30 @@
 FROM alpine AS eget
-RUN apk add --no-cache curl
+RUN apk add --no-cache curl docker-cli helm kubectl
 RUN curl -L https://github.com/zyedidia/eget/releases/download/v1.3.3/eget-1.3.3-linux_amd64.tar.gz | tar --strip-components 1 -xz -C /usr/local/bin
 RUN chmod +x /usr/local/bin/eget
 
 FROM gcr.io/google-containers/pause AS pause
 
+FROM golang:1.24-alpine AS golang
+RUN apk add --no-cache git openssh
+RUN git clone https://github.com/roerohan/wait-for-it.git /go/src/github.com/roerohan/wait-for-it -b v0.2.14
+RUN cd /go/src/github.com/roerohan/wait-for-it && go build -a -v -ldflags '-s -w -extldflags "-static"' -o /go/bin/wait-for-it
+
 # ============================================================
 
 FROM alpine AS trim
 
-# Copy eget from previous step
+# Copy eget and Alpine apps from previous step
 COPY --from=eget /usr/local/bin/eget /usr/local/bin/eget
+COPY --from=eget /usr/bin/docker /usr/local/bin/docker
+COPY --from=eget /usr/bin/helm /usr/local/bin/helm
+COPY --from=eget /usr/bin/kubectl /usr/local/bin/kubectl
 
 # Copy pause from previous step
 COPY --from=pause /pause /usr/local/bin/pause
+
+# Copy Go apps from previous step
+COPY --from=golang /go/bin/wait-for-it /usr/local/bin/wait-for-it
 
 # Add a handful of default applications
 RUN apk add --no-cache bash curl make file zip unzip git bind-tools busybox-extras jq openssh
@@ -25,14 +36,11 @@ RUN rm -rf /var/cache/apk/*
 RUN sed -i "s|ash|bash|g" /etc/passwd
 
 # Download different apps
-RUN eget https://get.helm.sh/helm-v3.14.0-linux-amd64.tar.gz --file helm --to /usr/local/bin
-RUN eget https://github.com/chartmuseum/helm-push/releases/download/v0.10.4/helm-push_0.10.4_linux_amd64.tar.gz --file helm-cm-push --to /usr/local/bin
-RUN eget https://dl.k8s.io/v1.29.1/bin/linux/amd64/kubectl --to /usr/local/bin
-RUN eget https://download.docker.com/linux/static/stable/x86_64/docker-25.0.0.tgz --file docker/docker --to /usr/local/bin
+
+# Detect OS and Architecture and set to an environment variable
+RUN eget chartmuseum/helm-push --file helm-cm-push --to /usr/local/bin
 RUN eget patrickdappollonio/tgen --to /usr/local/bin
 RUN eget patrickdappollonio/wait-for --to /usr/local/bin
-RUN eget https://github.com/roerohan/wait-for-it/releases/download/v0.2.9/wait-for-it --to /usr/local/bin && \
-  chmod +x /usr/local/bin/wait-for-it
 
 # Test if the apps were successfully installed
 RUN ls -la /usr/local/bin
