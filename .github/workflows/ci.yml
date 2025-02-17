@@ -49,6 +49,8 @@ jobs:
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.TAG_DATE }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
       - uses: gautamkrishnar/keepalive-workflow@v1
         with:
