@@ -22,7 +22,7 @@ Alpine base image with the following Linux apps:
 
 And the following utilities:
 
-* `kubectl` (version `1.24`)
+* `kubectl` (latest version available in alpine)
 * `helm` (latest version available in alpine)
 * `helm-push` (latest version available)
 * [`wait-for-it`](https://github.com/roerohan/wait-for-it) (v0.2.14)
