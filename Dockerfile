@@ -5,8 +5,6 @@ RUN chmod +x /usr/local/bin/eget
 
 FROM gcr.io/google-containers/pause AS pause
 
-FROM ghcr.io/runatlantis/atlantis:v0.33.0 AS atlantis
-
 FROM golang:1.24-alpine AS golang
 RUN apk add --no-cache git openssh
 RUN git clone https://github.com/roerohan/wait-for-it.git /go/src/github.com/roerohan/wait-for-it -b v0.2.14
@@ -24,9 +22,6 @@ COPY --from=eget /usr/bin/kubectl /usr/local/bin/kubectl
 
 # Copy pause from previous step
 COPY --from=pause /pause /usr/local/bin/pause
-
-# Copy atlantis from previous step
-COPY --from=atlantis /usr/local/bin/atlantis /usr/local/bin/atlantis
 
 # Copy Go apps from previous step
 COPY --from=golang /go/bin/wait-for-it /usr/local/bin/wait-for-it
@@ -56,7 +51,6 @@ RUN docker --version
 RUN tgen --version
 RUN wait-for --version
 RUN wait-for-it -h
-RUN atlantis version
 
 # Remove eget once we're done
 RUN rm /usr/local/bin/eget
