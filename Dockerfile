@@ -5,7 +5,7 @@ RUN chmod +x /usr/local/bin/eget
 
 FROM gcr.io/google-containers/pause AS pause
 
-FROM ghcr.io/runatlantis/atlantis:v0.33.0 as atlantis
+FROM ghcr.io/runatlantis/atlantis:v0.33.0 AS atlantis
 
 FROM golang:1.24-alpine AS golang
 RUN apk add --no-cache git openssh
@@ -56,11 +56,12 @@ RUN docker --version
 RUN tgen --version
 RUN wait-for --version
 RUN wait-for-it -h
+RUN atlantis version
 
 # Remove eget once we're done
 RUN rm /usr/local/bin/eget
 
 # Clean single layer image
 FROM scratch
-LABEL maintainer "Patrick D'appollonio <hey@patrickdap.com>"
+LABEL maintainer="Patrick D'appollonio <hey@patrickdap.com>"
 COPY --from=trim / /
