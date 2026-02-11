@@ -5,7 +5,7 @@ RUN chmod +x /usr/local/bin/eget
 
 FROM gcr.io/google-containers/pause AS pause
 
-FROM golang:1.24-alpine AS golang
+FROM golang:1.26-alpine AS golang
 RUN apk add --no-cache git openssh
 RUN git clone https://github.com/roerohan/wait-for-it.git /go/src/github.com/roerohan/wait-for-it -b v0.2.14
 RUN cd /go/src/github.com/roerohan/wait-for-it && go build -a -v -ldflags '-s -w -extldflags "-static"' -o /go/bin/wait-for-it
